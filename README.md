@@ -2,35 +2,59 @@
 
 ### Setup
 
-- Get `set_network_priority.sh`
+- **Get `set_network_priority.sh`**
 
 ```bash
 wget "https://raw.githubusercontent.com/hirusha-adi/set-network-priority-linux/refs/heads/main/set_network_priority.sh"
 ```
 
-- Save and make it executable
+- **Save and make it executable**
 
 ```bash
 chmod +x set_network_priority.sh
 ```
 
-- See basic guide
-
-```bash
-chmod +x set_network_priority.sh
-```
-
-- See help
+- **See help**
 
 ```bash
 ./set_network_priority.sh --help
 ```
 
-- Run the script
+- [Retrieve Network UUIDs](#retrieve-network-uuids)
+
+- **Run the script**
 
 ```bash
 ./set_network_priority.sh
 ```
+
+---
+
+### Retrieve Network UUIDs
+
+To get the UUIDs of your network connections, use the following command:
+
+```bash
+nmcli connection show
+```
+
+This will display a list of all available connections. Look for the `NAME` of the connection you want to modify and note down its corresponding `UUID`. Below is an example output:
+
+```plaintext
+NAME                UUID                                  TYPE      DEVICE
+Hirusha123          f7250c36-9ee1-401f-8d1e-8acbcb3f8fe3  wifi      wlan0
+Wired connection 2  68e0ae68-a35b-3bc1-b80a-c74b09c768f3  ethernet  enp5s0
+docker0             33808f7a-32cc-4d53-8515-1da90caa81bf  bridge    docker0
+```
+
+In this example:
+
+- The UUID for WiFi (`Hirusha123`) is `f7250c36-9ee1-401f-8d1e-8acbcb3f8fe3`.
+- The UUID for Ethernet (`Wired connection 2`) is `68e0ae68-a35b-3bc1-b80a-c74b09c768f3`.
+
+Use the corresponding UUID when prompted by the script.
+
+---
 
 ### Help
 
